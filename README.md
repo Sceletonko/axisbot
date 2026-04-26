@@ -1,78 +1,49 @@
 # AxisBot
 
-AxisBot is a Discord bot designed for Esport Discord Servers to welcome new members with a custom embed message featuring their profile picture, a personalized text, and a GIF.
+AxisBot is a Discord bot designed for Esport servers, focusing on providing a welcoming experience for new members.
 
 ## Features
 
-- **Welcome Messages**: Sends a customizable welcome embed when a new member joins the server.
-- **User Profile Picture**: Displays the new member's profile picture in the welcome embed.
-- **Customizable Text**: Allows for personalized welcome text.
-- **GIF Integration**: Includes an animated GIF in the welcome embed.
+- **Welcome Message**: Sends a customizable embedded welcome message to new members, featuring their profile picture and a relevant GIF.
 
 ## Setup
 
-### 1. Create a Discord Bot Application
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/your-repo/axisbot.git
+    cd axisbot
+    ```
 
-Follow these steps to create a Discord Bot application and obtain a token:
+2.  **Create a `.env` file**: 
+    Copy the `.env.example` file and rename it to `.env`. Then, populate it with your bot's token:
+    ```
+    DISCORD_TOKEN=your_token_here
+    ```
 
-1. Go to the [Discord Developer Portal](https://discord.com/developers/applications).
-2. Click on "New Application".
-3. Give your application a name (e.g., "AxisBot") and click "Create".
-4. Navigate to the "Bot" tab on the left sidebar.
-5. Click "Add Bot" and confirm.
-6. Under "Privileged Gateway Intents", enable **PRESENCE INTENT**, **SERVER MEMBERS INTENT**, and **MESSAGE CONTENT INTENT**.
-7. Click "Reset Token" to generate a new token (if you haven't already).
-8. Copy the token. This will be your `DISCORD_TOKEN`.
+3.  **Install dependencies**:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-### 2. Environment Variables
+4.  **Run the bot**:
+    ```bash
+    python main.py
+    ```
 
-Create a `.env` file in the root directory of your project and add your Discord bot token:
+## Environment Variables
 
-```env
-DISCORD_TOKEN=YOUR_BOT_TOKEN_HERE
-WELCOME_CHANNEL_ID=YOUR_WELCOME_CHANNEL_ID
-WELCOME_GIF_URL=YOUR_WELCOME_GIF_URL
-```
+-   `DISCORD_TOKEN`: Your Discord bot token. You can get this from the [Discord Developer Portal](https://discord.com/developers/applications).
 
-- Replace `YOUR_BOT_TOKEN_HERE` with the token you copied from the Discord Developer Portal.
-- Replace `YOUR_WELCOME_CHANNEL_ID` with the ID of the channel where you want welcome messages to be sent. You can get a channel ID by right-clicking on the channel in Discord and selecting "Copy ID" (Developer Mode must be enabled in Discord settings).
-- Replace `YOUR_WELCOME_GIF_URL` with the URL of the GIF you want to display in the welcome message.
+## Inviting the Bot
 
-### 3. Installation
+To invite AxisBot to your server, you will need the `client_id` of your bot. Go to the [Discord Developer Portal](https://discord.com/developers/applications), select your bot, and navigate to the OAuth2 -> URL Generator section.
 
-1. Clone this repository:
-   ```bash
-   git clone <repository_url>
-   cd AxisBot
-   ```
-2. Install the required Python packages:
-   ```bash
-   pip install -r requirements.txt
-   ```
+Select the following scopes:
+- `bot`
+- `applications.commands`
 
-### 4. Running the Bot
+And the following bot permissions:
+- `Send Messages`
+- `Embed Links`
 
-```bash
-python main.py
-```
-
-### 5. Inviting the Bot to Your Server
-
-1. Go back to the [Discord Developer Portal](https://discord.com/developers/applications).
-2. Navigate to your bot's application.
-3. Go to the "OAuth2" tab, then "URL Generator".
-4. Under "Scopes", select `bot` and `applications.commands`.
-5. Under "Bot Permissions", select the following:
-   - `View Channels`
-   - `Send Messages`
-   - `Embed Links`
-   - `Attach Files` (if your GIF is an attachment and not a URL)
-   - `Read Message History`
-6. Copy the generated URL and paste it into your browser.
-7. Select your server and authorize the bot.
-
-## Render Deployment (Optional)
-
-This project includes a `render.yaml` file for easy deployment to Render as a Background Worker.
-
-1. Create a new 
+Generate the URL and use it to invite the bot to your server.
