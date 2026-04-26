@@ -1,4 +1,3 @@
-# .gitignore
-.env
+discord.py.log
 __pycache__/
-*.pyc
+.env
